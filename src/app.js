@@ -79,10 +79,6 @@ app.use(express.static(publicPath))
 // 	})
 // })
 
-app.get('/', (req, res) => {
-	res.send('Hello World. Up and running on port: ' + port)
-})
-
 app.listen(port, () => {
 	console.log('Server is up on port ', port)
 })

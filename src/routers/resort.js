@@ -10,9 +10,9 @@ const resortController = require('../controllers/resortController')
 const router = new express.Router()
 const publicDirectory = path.join(__dirname, '../../public')
 
-router.get('/resorts/populate', async (req, res) => {
-	resortController.loadResortsFromCsv('skiareas.csv')
-})
+// router.get('/resorts/populate', async (req, res) => {
+// 	resortController.loadResortsFromCsv('skiareas.csv')
+// })
 
 router.get('/resorts', async (req, res) => {
 	try {
@@ -49,7 +49,7 @@ router.get('/resorts/updateforecasts', async (req, res) => {
 	}
 })
 
-router.get('/map', async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		var resorts = await Resort.find().sort('-precipForecast7Day').lean()
 		const resortsGeoJSON = GeoJSON.parse(resorts, {Point: ['lat', 'lng']});

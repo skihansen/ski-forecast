@@ -7,7 +7,7 @@ const forecastController = require('../controllers/forecastController')
 
 const router = new express.Router()
 
-router.get('/forecasts/populate', async (req, res) => {
+router.get('/forecasts/update', async (req, res) => {
 	forecastController.populateForecasts()
 })
 
