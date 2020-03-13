@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>{{ Title }}</title>
+	
+</head>
+<body>
+	{{>header}}
+	<h1>here are the tests in folder tests</h1>
+		<ul>
+			{{#each tests}}
+				<li><a href="/tests/{{_id}}">{{ title }}</a></li>
+			{{/each}}
+		</ul>
+	{{>footer}}
+</body>
+</html>

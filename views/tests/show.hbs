@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>{{ Title }}</title>
+	
+</head>
+<body>
+	{{>header}}
+		<ul>
+			<h1>{{ test.title }}</h1>
+			<p>{{ test.description }}</p>
+			<a href="/tests/{{test._id}}/edit">Edit</a>
+		</ul>
+	{{>footer}}
+</body>
+</html>

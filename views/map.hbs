@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Static Map</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/css/app.css">
+
+
+</head>
+<body>
+	<div class="container">
+		<header class="header"><h1>SNOW FORECAST</h1></header>
+		<nav class="resort-nav">
+			<div class="resort-nav-header"><h3>7-Day Snow Forecasts</h3></div>
+			<div class="resort-list">
+				{{#each resorts}}
+		          <div class="resort-list-item" id="listing-{{ _id }}">
+		          	<a name="{{ _id }}"></a> 
+		            <a href="#" class="resort-title" id="link-{{ _id }}">{{ name }}</a>
+		            <div class="resort-location">
+		              {{ city }}, {{ state }}
+		            </div>
+		            <div>7 day snow forecast: <span class="snow-forecast">{{ precipForecast7Day }}"</span></div>
+		          </div>
+		        {{/each}}
+		    </div>
+		</nav>
+		<div class="map-container">
+				<div id="map"></div>
+		</div>
+		<div class="weather-header">
+				<h3 id="weather-heading">Click on a resort to see weather forecast</h3>
+		</div>
+		<div class="weather-container">
+				<ul id="forecast" class="weather">
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+					<li class="weather-item">
+						<div class="future-weather-date">Sat Mar 14</div>
+						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">33&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
+					</li>
+				</ul>
+		</div>
+	</div>
+
+
+<script type="text/javascript">
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVvaGFuc2VuIiwiYSI6ImNqejA0enJobzA3MjAzaHFkMzZ0bW00cjMifQ.tACyTjWRRNJaMoG4k97ypA';
+      /** 
+       * Add the map to the page
+      */
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-100.034084142948, 38.909671288923],
+        zoom: 3,
+        scrollZoom: false
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+      var decodedJson = decodeURIComponent("{{{encodedJson}}}");
+      var resortsJson = JSON.parse(decodedJson).data;
+
+      /**
+       * Wait until the map loads to make changes to the map.
+      */
+      map.on('load', function (e) {
+        /** 
+         * This is where your '.addLayer()' used to be, instead
+         * add only the source without styling a layer
+        */
+        map.addSource("resorts", {
+          "type": "geojson",
+          "data": resortsJson
+        }); // end map.addSource
+
+		map.addLayer({
+		'id': 'highlight_resorts_label',
+		'type': 'symbol',
+		'source': 'resorts',
+		'layout': {
+		'text-field': [
+			'format',
+			['upcase', ['get', 'name']],
+			{ 'font-scale': 0.8 }
+		],
+		'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+		'text-offset': [0, 0.6],
+		'text-anchor': 'top'
+		},
+		"filter": ["==", "id", '']
+		});
+        map.addLayer({
+          "id": "highlight_resorts",
+          "type": "circle",
+          "source": "resorts",
+          "paint": {
+              "circle-radius": 17,
+              "circle-color": "#7FDBFF",
+              "circle-blur": 0.5
+          },
+        "filter": ["==", "id", ''],
+        });// end map.addLayer
+
+        map.addLayer({
+          "id": "resorts",
+          "type": "circle",
+          "source": "resorts",
+          "paint": {
+              "circle-radius": 6,
+              "circle-color": "#0074D9"
+          }
+        });// end map.addLayer
+      }); // end map.on('load'
+      map.on('click', 'resorts', function (e) {
+      	var selectedResort = e.features[0];
+      	location.href = "#"+selectedResort.properties._id;
+      	populateWeather(selectedResort);
+      });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'resorts', function (e) {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+     
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'resorts', function () {
+    map.getCanvas().style.cursor = '';
+    });
+
+    var sidebarLinks = document.querySelectorAll("[id^='link']").forEach(el => el.addEventListener('click', event => {
+        var resortID = event.target.id.split('-')[1]
+        console.log(resortID);
+        var selectedResort = map.querySourceFeatures('resorts', {
+          filter: ['==', '_id', resortID]
+        })[0];
+        populateWeather(selectedResort);
+    }));
+    
+    function populateWeather(selectedResort) {
+    	var forecasts = JSON.parse(selectedResort.properties.forecasts);
+	        map.setFilter('highlight_resorts', ['==', '_id', selectedResort.properties._id]);
+	        map.setFilter('highlight_resorts_label', ['==', '_id', selectedResort.properties._id]);
+	        flyToPoint(selectedResort.geometry.coordinates);
+	        var options = { weekday: 'short', month: 'short', day: 'numeric' };
+			var date = new Date(forecasts[0].date);
+			var precipAccumulation = 0;
+			if (forecasts[0].precipAccumulation) {
+				precipAccumulation = forecasts[0].precipAccumulation;
+			}
+			var forecastHTML = ""
+for (var i = 0; i <= 6; i++) {
+	        	date = new Date(forecasts[i].date)
+	        	if (forecasts[i].precipAccumulation) {
+					precipAccumulation = forecasts[i].precipAccumulation;
+				}  else {
+					precipAccumulation = 0;
+				}
+	        	forecastHTML = forecastHTML + `<li class="weather-item">
+						<div class="future-weather-date">` + date.toLocaleDateString("en-US", options) + `</div>
+						<div class="future-weather-icon"><img src="/icons/` + forecasts[i].icon + `.png"></div>
+						<div class="future-weather-temp">
+							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
+							<span class="temp-low">LOW</span>
+						</div>
+						<div class="future-weather-temp">
+							<span class="temp-high">` + Math.round(forecasts[i].temperatureHigh) + `&#8457;&nbsp;&nbsp;</span>
+							<span class="temp-low">` + Math.round(forecasts[i].temperatureLow) + `&#8457;</span>
+						</div>
+						<div class="future-weather-snow-forecast">Snowfall: ` + precipAccumulation + `"</div>
+					</li>`;
+	        }
+	        document.getElementById("weather-heading").innerHTML = 'Weather forecast for ' + selectedResort.properties.name;
+	        document.getElementById("forecast").innerHTML = forecastHTML;
+    }
+          /**
+       * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+       * a given center point.
+      **/
+      function flyToPoint(coordinates) {
+        map.flyTo({
+          center: coordinates,
+          zoom: 6
+        });
+      }
+</script>
+</body>
+</html>
