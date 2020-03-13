@@ -3,6 +3,7 @@ const express = require('express')
 const Forecast = require('../models/forecast')
 const Resort = require('../models/resort')
 const darkSkyForecast = require('../utils/darkSkyForecast')
+const forecastController = require('../controllers/forecastController')
 
 const updateResortForecasts = async(resort, daily_forecast) => {
 	try {
@@ -73,9 +74,26 @@ const calculateResortSnowForecast = async (resort) => {
 	}
 	
 }
+const populateForecasts = async () => {
+	var date = new Date();
+	const resorts = await Resort.find()
+	for(resort of resorts) {
+		console.log('Fetching daily forecast for ' , resort.name, ' at ', date);
+		 getForecastForResort(resort, async (error, resort, daily_forecast) => {
+			if(error) {
+				console.log(error)
+			} else {
+				console.log('Updating daily forecast for ' , resort.name);
+				await updateResortForecasts(resort, daily_forecast)
+				await calculateResortSnowForecast(resort)
+			}
+		})
+	}
+}
 
 module.exports = {
 				getForecastForResort,
 				updateResortForecasts,
-				calculateResortSnowForecast
+				calculateResortSnowForecast,
+				populateForecasts
 				  }

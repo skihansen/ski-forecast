@@ -7,6 +7,10 @@ const forecastController = require('../controllers/forecastController')
 
 const router = new express.Router()
 
+router.get('/forecasts/populate', async (req, res) => {
+	forecastController.populateForecasts()
+})
+
 router.get('/resort/forecast', async (req, res) => {
 	try {
 		const resorts = await Resort.find()

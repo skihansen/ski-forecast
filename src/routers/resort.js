@@ -4,10 +4,15 @@ const GeoJSON = require('geojson')
 const Resort = require('../models/resort')
 const Forecast = require('../models/forecast')
 const forecastController = require('../controllers/forecastController')
+const resortController = require('../controllers/resortController')
 // const auth = require('../middleware/auth')
 
 const router = new express.Router()
 const publicDirectory = path.join(__dirname, '../../public')
+
+router.get('/resorts/populate', async (req, res) => {
+	resortController.loadResortsFromCsv('skiareas.csv')
+})
 
 router.get('/resorts', async (req, res) => {
 	try {
