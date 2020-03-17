@@ -43,8 +43,8 @@ body {
 }
 
 .weather-header h3 {
-  margin: 3px 0 3px 20px;
-  color: #1f4371;
+  margin: 10px 0 10px 8px;
+  color: #777777;
 }
 
 .container {
@@ -113,6 +113,7 @@ body {
   padding-bottom: calc(.75 * var(--gutter));
   margin-bottom: calc(-.5 * var(--gutter));
   padding-inline-start: 8px;
+  margin-top: 0;
 }
 
 .weather:after {
@@ -131,6 +132,17 @@ body {
   border-radius: 8px;
 }
 
+.future-weather-date, .future-weather-temp, .future-weather-snow-forecast {
+  color: white;
+
+}
+.future-weather-date, .future-weather-snow-forecast {
+  font-weight: bold;
+    font-size: 1.2em;
+}
+.future-weather-snow-forecast {
+  padding-top: 3px;
+}
 .future-weather-icon img {
   height: 30px;
 }

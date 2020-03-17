@@ -37,97 +37,7 @@
 		</div>
 		<div class="weather-container">
 				<ul id="forecast" class="weather">
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
-					<li class="weather-item">
-						<div class="future-weather-date">Sat Mar 14</div>
-						<div class="future-weather-icon"><img src="/icons/cloudy.png"></div>
-						<div class="future-weather-temp">
-							<span class="temp-high">HIGH&nbsp;&nbsp;</span>
-							<span class="temp-low">LOW</span>
-						</div>
-						<div class="future-weather-temp">
-							<span class="temp-high">43&#8457;&nbsp;&nbsp;</span>
-							<span class="temp-low">33&#8457;</span>
-						</div>
-						<div class="future-weather-snow-forecast">Snowfall: 10"</div>
-					</li>
+				<!-- Weather items here on resort click -->
 				</ul>
 		</div>
 	</div>
@@ -258,7 +168,7 @@ for (var i = 0; i <= 6; i++) {
 						<div class="future-weather-snow-forecast">Snowfall: ` + precipAccumulation + `"</div>
 					</li>`;
 	        }
-	        document.getElementById("weather-heading").innerHTML = 'Weather forecast for ' + selectedResort.properties.name;
+	        document.getElementById("weather-heading").innerHTML = 'Weather forecast for ' + selectedResort.properties.name + ' (7-day snow forecast: ' + selectedResort.properties.precipForecast7Day + '")';
 	        document.getElementById("forecast").innerHTML = forecastHTML;
     }
           /**
