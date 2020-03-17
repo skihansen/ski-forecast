@@ -89,4 +89,15 @@ router.post('/resorts', async (req, res) => {
 	
 })
 
+router.patch('/resorts/:id', async (req, res) => {
+	try {
+		const resort = await Resort.findByIdAndUpdate(req.params.id, req.body)
+		res.send(resort)
+		// await resort.save()
+	} catch(e) {
+		res.status(400).send(e)
+	}
+	
+})
+
 module.exports = router
